@@ -1,0 +1,16 @@
+{
+    "editor.minimap.enabled": false,
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultColorDecorators": "never",
+        "editor.formatOnType": true,
+        "editor.wordBasedSuggestions": "off",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+    },
+    "editor.fontFamily": "'JetBrains Mono', Menlo",
+    "jupyter.interactiveWindow.textEditor.executeSelection": true
+}
