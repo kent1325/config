@@ -109,17 +109,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gopen='open .' # Opens the folder in Finder
 alias gbrowse='open $(git config --get remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")' # Opens the GitHub/GitLab page (requires remote)
-alias glog="git log --graph --topo-order --pretty=format:'%C(yellow)%h%C(reset) -%C(symbolic color:reset)%d%C(reset) %s %C(bold blue)<%an>%C(reset) %C(green)(%cr)%C(reset)' --abbrev-commit --date=relative"
+alias gl="git log --graph --topo-order --pretty=format:'%C(yellow)%h%C(reset) -%C(symbolic color:reset)%d%C(reset) %s %C(bold blue)<%an>%C(reset) %C(green)(%cr)%C(reset)' --abbrev-commit --date=relative"
 alias gnb='git checkout -b'  # Create and switch to a new branch
 alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m'
 alias gfgp='git fetch;git pull'
 alias gpcurrent='git push --set-upstream origin'
-
-# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
