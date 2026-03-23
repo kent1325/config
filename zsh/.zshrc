@@ -1,3 +1,5 @@
+[[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -116,9 +118,7 @@ alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m'
 alias gfgp='git fetch;git pull'
-alias gpcurrent='git push --set-upstream origin'
+alias gpcurrent='git push --set-upstream origin $(git branch --show-current)'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-. "$HOME/.local/bin/env"
