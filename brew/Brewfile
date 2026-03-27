@@ -1,4 +1,6 @@
+brew "just"
 brew "opencode"
+brew "tmux"
 brew "uv"
 cask "bitwarden"
 cask "brave-browser"
