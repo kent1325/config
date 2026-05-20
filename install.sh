@@ -16,11 +16,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/scripts/lib.sh"
 
 # ---- Step registry (name → script) -----------------------------------------
-declare -a STEP_ORDER=(brew shell symlinks vscode raycast)
+declare -a STEP_ORDER=(brew shell symlinks neovim vscode raycast)
 declare -A STEP_SCRIPTS=(
   [brew]="homebrew.sh"
   [shell]="shell.sh"
   [symlinks]="symlinks.sh"
+  [neovim]="neovim.sh"
   [vscode]="vscode.sh"
   [raycast]="raycast.sh"
 )

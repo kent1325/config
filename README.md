@@ -1,6 +1,6 @@
 # Mac config
 
-My personal Mac setup: zsh + oh-my-posh + Ghostty + VS Code + Raycast, all installed and configured by one script.
+My personal Mac setup: zsh + oh-my-posh + Ghostty + Neovim + VS Code + Raycast, all installed and configured by one script.
 
 ## What's inside
 
@@ -11,6 +11,7 @@ config/
 ├── brew/Brewfile       # All brews, casks, and VS Code extensions
 ├── zsh/                # .zshrc + oh-my-posh theme
 ├── git/                # .gitconfig
+├── neovim/             # init.lua
 ├── ghostty/            # Ghostty terminal config
 ├── vscode/             # settings.json + keybindings
 └── raycast/            # Raycast config export
@@ -65,7 +66,18 @@ Creates these symlinks (existing files are backed up to `~/.dotfiles-backup/<tim
 
 Symlinks (rather than copies) mean editing the repo file is the same as editing `~/<file>`.
 
-### 4. `vscode` — link VS Code settings + keybindings
+### 4. `neovim` — link Neovim config + create undo dir
+
+```bash
+./install.sh neovim
+```
+
+- Verifies Neovim ≥ 0.12 is installed (required for the built-in `vim.pack` plugin manager).
+- Symlinks `neovim/init.lua` → `~/.config/nvim/init.lua`.
+- Creates `~/.vim/undodir` so persistent undo works on first edit.
+- No plugin-manager bootstrap needed — `vim.pack` handles plugin installs the first time you launch `nvim`.
+
+### 5. `vscode` — link VS Code settings + keybindings
 
 ```bash
 ./install.sh vscode
@@ -74,7 +86,7 @@ Symlinks (rather than copies) mean editing the repo file is the same as editing 
 - Symlinks `vscode/settings.json` and `vscode/keybindings(mac).json` into `~/Library/Application Support/Code/User/`.
 - VS Code extensions are already installed by the `brew` step (they're listed as `vscode "..."` lines in the Brewfile).
 
-### 5. `raycast` — import the Raycast config
+### 6. `raycast` — import the Raycast config
 
 ```bash
 ./install.sh raycast
@@ -107,6 +119,7 @@ cp ~/.zshrc                                                       zsh/.zshrc
 cp ~/ZSHThemes.json                                               zsh/ZSHThemes.json
 cp ~/.gitconfig                                                   git/.gitconfig
 cp ~/.config/ghostty/config                                       ghostty/config
+cp ~/.config/nvim/init.lua                                        neovim/init.lua
 cp "$HOME/Library/Application Support/Code/User/settings.json"    vscode/settings.json
 cp "$HOME/Library/Application Support/Code/User/keybindings.json" "vscode/keybindings(mac).json"
 ```

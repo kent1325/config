@@ -20,7 +20,6 @@ link_file "$REPO_ROOT/ghostty/config"      "$HOME/.config/ghostty/config"
 
 # Add more dotfiles here as you grow the repo. Examples:
 # link_file "$REPO_ROOT/tmux/.tmux.conf"   "$HOME/.tmux.conf"
-# link_file "$REPO_ROOT/nvim"              "$HOME/.config/nvim"
 
 if [[ -d "${BACKUP_DIR:-}" ]]; then
   info "Originals backed up to: ${BACKUP_DIR/#$HOME/~}"
