@@ -1,0 +1,22 @@
+# Go to GitHub → Settings → Emails
+# Look for the address shaped like: <numbers>+<username>@users.noreply.github.com
+# Make sure "Keep my email addresses private" is checked
+[user]
+	email = <numbers>+<username>@users.noreply.github.com
+	name = <name>
+[init]
+	defaultBranch = main # Default branch for new repos
+[core]
+	editor = code --wait # Use VS Code as the editor for commit messages, rebases, etc.
+[color]
+	ui = auto # Show colors in status/diff
+[diff]
+	algorithm = histogram # Use modern, friendlier diffs
+[pull]
+	rebase = true # Keep your pulls clean (rebase, don't merge)
+[fetch]
+	prune = true # Auto-prune deleted remote branches on fetch
+[rerere]
+	enabled = true # Reuse conflict resolutions across rebases
+[credential]
+	helper = osxkeychain # macOS keychain for HTTPS credentials (no need to retype tokens)

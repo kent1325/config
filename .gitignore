@@ -1,0 +1,46 @@
+# ─── macOS ──────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*                       # AppleDouble resource forks
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# ─── Editor / IDE ───────────────────────────────────────────────────────────
+.vscode/                  # repo-local VS Code settings (your real config is in vscode/)
+.idea/                    # JetBrains
+*.swp                     # vim swap
+*.swo
+*~                        # emacs/nano backups
+.netrwhist                # vim netrw history
+
+# ─── Backups & temp files ───────────────────────────────────────────────────
+*.bak
+*.orig                    # left by `git mergetool` etc.
+*.tmp
+*.log
+
+# ─── Secrets (safety net — never check these in!) ──────────────────────────
+.env
+.env.*
+!.env.example             # …but DO track example files
+*.pem
+*.key
+id_rsa
+id_ed25519
+*.gpg                     # encrypted blobs are fine, but plain GPG keys are not
+.netrc
+.npmrc                    # often contains auth tokens
+.pypirc
+.gem/credentials
+
+# ─── Tooling ────────────────────────────────────────────────────────────────
+node_modules/             # if you ever add JS tooling for hooks/tests
+__pycache__/              # if you ever add Python helpers
+.python-version
+.venv/
+.tool-versions
