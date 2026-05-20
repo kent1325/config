@@ -43,4 +43,4 @@ node_modules/             # if you ever add JS tooling for hooks/tests
 __pycache__/              # if you ever add Python helpers
 .python-version
 .venv/
-.tool-versions
+.tool-versionszsh/.zsh_history
