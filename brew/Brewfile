@@ -21,7 +21,9 @@ cask "ghostty"
 # Font
 cask "font-jetbrains-mono-nerd-font"
 # Prompt theme engine for any shell
-brew "oh-my-posh"
+brew "starship"
+# Optional previous prompt engine — uncomment with the matching .zshrc/.ZSHThemes setup to switch back.
+# brew "oh-my-posh"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Additional completion definitions for zsh

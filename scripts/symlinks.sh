@@ -9,8 +9,11 @@ require_macos
 step "Symlinking dotfiles"
 
 # zsh
-link_file "$REPO_ROOT/zsh/.zshrc"          "$HOME/.zshrc"
-link_file "$REPO_ROOT/zsh/.ZSHThemes.json" "$HOME/.ZSHThemes.json"
+link_file "$REPO_ROOT/zsh/.zshrc"               "$HOME/.zshrc"
+link_file "$REPO_ROOT/starship/starship.toml"   "$HOME/.config/starship.toml"
+
+# Optional previous oh-my-posh theme config — uncomment to switch back.
+# link_file "$REPO_ROOT/zsh/.ZSHThemes.json"    "$HOME/.ZSHThemes.json"
 
 # git
 link_file "$REPO_ROOT/git/.gitconfig"      "$HOME/.gitconfig"

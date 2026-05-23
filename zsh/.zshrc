@@ -124,10 +124,7 @@ alias c='code .'
 # Reload zsh config without restarting shell
 alias reload='source ~/.zshrc'
 
-# Theme settings
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config ~/.ZSHThemes.json)"
-fi
+# Prompt theme is initialized at the end of this file, after completions/plugins.
 
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -143,3 +140,15 @@ eval "$(zoxide init zsh)"
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # case-insensitive
+
+# Prompt theme — Starship (active)
+# Config lives at ~/.config/starship.toml, symlinked from this repo.
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
+
+# Optional previous oh-my-posh prompt setup — uncomment to switch back.
+# Also uncomment `brew "oh-my-posh"` in brew/Brewfile and the .ZSHThemes symlink in scripts/symlinks.sh.
+# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+#   eval "$(oh-my-posh init zsh --config ~/.ZSHThemes.json)"
+# fi

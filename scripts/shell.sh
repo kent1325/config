@@ -1,20 +1,33 @@
 #!/usr/bin/env bash
-# Shell setup: verify oh-my-posh + zsh plugins are present (installed by Brewfile),
+# Shell setup: verify starship + zsh plugins are present (installed by Brewfile),
 # and ensure zsh is the default login shell.
 
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 require_macos
 
-step "Shell (zsh + oh-my-posh)"
+step "Shell (zsh + starship)"
 
-# ---- Verify oh-my-posh -----------------------------------------------------
-if has oh-my-posh; then
-  ok "oh-my-posh installed ($(oh-my-posh --version))"
+# ---- Verify Starship -------------------------------------------------------
+if has starship; then
+  ok "starship installed ($(starship --version | head -1))"
 else
-  err "oh-my-posh not found. Did the brew step run? Try: ./install.sh brew"
+  err "starship not found. Did the brew step run? Try: ./install.sh brew"
   exit 1
 fi
+
+# ---- Optional previous oh-my-posh setup ------------------------------------
+# To switch back to oh-my-posh later:
+# - uncomment `brew "oh-my-posh"` in brew/Brewfile
+# - uncomment the .ZSHThemes symlink in scripts/symlinks.sh
+# - uncomment the oh-my-posh init block in zsh/.zshrc
+#
+# if has oh-my-posh; then
+#   ok "oh-my-posh installed ($(oh-my-posh --version))"
+# else
+#   err "oh-my-posh not found. Did the brew step run? Try: ./install.sh brew"
+#   exit 1
+# fi
 
 # ---- Verify zsh plugins (installed via Homebrew) ---------------------------
 for pkg in zsh-autosuggestions zsh-syntax-highlighting; do
@@ -38,4 +51,4 @@ else
   chsh -s "$ZSH_PATH" || warn "Could not chsh automatically — run 'chsh -s $ZSH_PATH' manually."
 fi
 
-ok "Shell step complete. Open a new terminal to see the oh-my-posh prompt."
+ok "Shell step complete. Open a new terminal to see the Starship prompt."

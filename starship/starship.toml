@@ -1,0 +1,115 @@
+# Starship prompt config
+# Uses Catppuccin Macchiato colours and Nerd Font glyphs.
+# Set your terminal font to JetBrainsMono Nerd Font Regular for best rendering.
+
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+command_timeout = 1000
+scan_timeout = 30
+palette = "catppuccin_macchiato"
+
+# Keep the prompt fast and focused: OS, user, path, Git, duration/status, prompt char.
+format = "$os$username$hostname$directory$git_branch$git_status$cmd_duration$status$line_break$character"
+
+[os]
+disabled = false
+style = "fg:overlay2"
+format = "[$symbol]($style)"
+
+[os.symbols]
+Macos = "  "
+
+[username]
+show_always = true
+style_user = "fg:blue"
+style_root = "bold fg:red"
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = true
+style = "fg:blue"
+format = "[@$hostname]($style) "
+
+[directory]
+style = "fg:pink"
+read_only = " 󰌾"
+read_only_style = "fg:red"
+truncation_length = 3
+truncate_to_repo = false
+home_symbol = "~"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[directory.substitutions]
+"Code" = "󰲋 Code"
+"Desktop" = " Desktop"
+"Documents" = "󰈙 Documents"
+"Downloads" = " Downloads"
+"Music" = " Music"
+"Pictures" = " Pictures"
+
+[git_branch]
+symbol = " "
+style = "fg:lavender"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style = "fg:peach"
+format = "([$all_status$ahead_behind]($style) )"
+conflicted = "=${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = "󰏗 ${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[cmd_duration]
+min_time = 2000
+style = "fg:yellow"
+format = "[$duration]($style) "
+
+[status]
+disabled = false
+style = "fg:red"
+symbol = "✘ "
+signal_symbol = "⚡ "
+sigint_symbol = " "
+format = "[$symbol$status]($style) "
+
+[character]
+success_symbol = "[❯](fg:green)"
+error_symbol = "[❯](fg:red)"
+vimcmd_symbol = "[❮](fg:green)"
+
+[palettes.catppuccin_macchiato]
+rosewater = "#F4DBD6"
+flamingo = "#F0C6C6"
+pink = "#F5BDE6"
+mauve = "#C6A0F6"
+red = "#ED8796"
+maroon = "#EE99A0"
+peach = "#F5A97F"
+yellow = "#EED49F"
+green = "#A6DA95"
+teal = "#8BD5CA"
+sky = "#91D7E3"
+sapphire = "#7DC4E4"
+blue = "#8AADF4"
+lavender = "#B7BDF8"
+text = "#CAD3F5"
+subtext1 = "#B8C0E0"
+subtext0 = "#A5ADCB"
+overlay2 = "#939AB7"
+overlay1 = "#8087A2"
+overlay0 = "#6E738D"
+surface2 = "#5B6078"
+surface1 = "#494D64"
+surface0 = "#363A4F"
+base = "#24273A"
+mantle = "#1E2030"
+crust = "#181926"

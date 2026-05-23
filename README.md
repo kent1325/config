@@ -1,6 +1,6 @@
 # Mac config
 
-My personal Mac setup: zsh + oh-my-posh + Ghostty + Neovim + VS Code + Raycast, all installed and configured by one script.
+My personal Mac setup: zsh + Starship + Ghostty + Neovim + VS Code + Raycast, all installed and configured by one script.
 
 ## What's inside
 
@@ -9,7 +9,8 @@ config/
 ├── install.sh          # The one command that sets up a Mac
 ├── scripts/            # One script per setup step
 ├── brew/Brewfile       # All brews, casks, and VS Code extensions
-├── zsh/                # .zshrc + oh-my-posh theme
+├── zsh/                # .zshrc + optional previous oh-my-posh theme
+├── starship/           # Starship prompt config
 ├── git/                # .gitconfig
 ├── neovim/             # init.lua
 ├── ghostty/            # Ghostty terminal config
@@ -40,13 +41,13 @@ It runs these in order. Each step is **idempotent** — safe to re-run.
 - Installs Homebrew if it's missing (this also installs Xcode Command Line Tools).
 - Runs `brew bundle` against `brew/Brewfile`, which installs all CLI tools, GUI apps, and VS Code extensions in one go.
 
-### 2. `shell` — make zsh + oh-my-posh ready to use
+### 2. `shell` — make zsh + Starship ready to use
 
 ```bash
 ./install.sh shell
 ```
 
-- Confirms `oh-my-posh` and the zsh plugins (`zsh-autosuggestions`, `zsh-syntax-highlighting`) are installed.
+- Confirms `starship` and the zsh plugins (`zsh-autosuggestions`, `zsh-syntax-highlighting`) are installed.
 - Sets zsh as the default login shell with `chsh` if it isn't already.
 
 ### 3. `symlinks` — link dotfiles from the repo into `$HOME`
@@ -60,7 +61,7 @@ Creates these symlinks (existing files are backed up to `~/.dotfiles-backup/<tim
 | Repo file | Linked to |
 |---|---|
 | `zsh/.zshrc` | `~/.zshrc` |
-| `zsh/.ZSHThemes.json` | `~/.ZSHThemes.json` |
+| `starship/starship.toml` | `~/.config/starship.toml` |
 | `git/.gitconfig` | `~/.gitconfig` |
 | `ghostty/config` | `~/.config/ghostty/config` |
 
@@ -116,7 +117,9 @@ To re-capture other configs:
 
 ```bash
 cp ~/.zshrc                                                       zsh/.zshrc
-cp ~/.ZSHThemes.json                                              zsh/.ZSHThemes.json
+cp ~/.config/starship.toml                                        starship/starship.toml
+# Optional previous oh-my-posh theme:
+# cp ~/.ZSHThemes.json                                            zsh/.ZSHThemes.json
 cp ~/.gitconfig                                                   git/.gitconfig
 cp ~/.config/ghostty/config                                       ghostty/config
 cp ~/.config/nvim/init.lua                                        neovim/init.lua
