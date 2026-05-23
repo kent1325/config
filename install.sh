@@ -16,15 +16,20 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/scripts/lib.sh"
 
 # ---- Step registry (name → script) -----------------------------------------
+# Keep this Bash 3.2-compatible because macOS ships an older /bin/bash.
 declare -a STEP_ORDER=(brew shell symlinks neovim vscode raycast)
-declare -A STEP_SCRIPTS=(
-  [brew]="homebrew.sh"
-  [shell]="shell.sh"
-  [symlinks]="symlinks.sh"
-  [neovim]="neovim.sh"
-  [vscode]="vscode.sh"
-  [raycast]="raycast.sh"
-)
+
+step_script() {
+  case "$1" in
+    brew)     printf "%s\n" "homebrew.sh" ;;
+    shell)    printf "%s\n" "shell.sh" ;;
+    symlinks) printf "%s\n" "symlinks.sh" ;;
+    neovim)   printf "%s\n" "neovim.sh" ;;
+    vscode)   printf "%s\n" "vscode.sh" ;;
+    raycast)  printf "%s\n" "raycast.sh" ;;
+    *)        return 1 ;;
+  esac
+}
 
 # ---- Usage / list ----------------------------------------------------------
 usage() {
@@ -32,9 +37,11 @@ usage() {
 }
 
 list_steps() {
+  local name script
   printf "%s\n" "${C_BOLD}Available steps (run in this order with no args):${C_RESET}"
   for name in "${STEP_ORDER[@]}"; do
-    printf "  ${C_CYAN}%-10s${C_RESET}  %s\n" "$name" "scripts/${STEP_SCRIPTS[$name]}"
+    script="$(step_script "$name")"
+    printf "  ${C_CYAN}%-10s${C_RESET}  %s\n" "$name" "scripts/$script"
   done
 }
 
@@ -51,7 +58,7 @@ if [[ $# -eq 0 ]]; then
 else
   steps_to_run=("$@")
   for s in "${steps_to_run[@]}"; do
-    if [[ -z "${STEP_SCRIPTS[$s]:-}" ]]; then
+    if ! step_script "$s" >/dev/null; then
       err "Unknown step: $s"
       list_steps
       exit 1
@@ -71,7 +78,8 @@ BANNER
 
 # ---- Run each requested step -----------------------------------------------
 for name in "${steps_to_run[@]}"; do
-  bash "$SCRIPT_DIR/scripts/${STEP_SCRIPTS[$name]}"
+  script="$(step_script "$name")"
+  bash "$SCRIPT_DIR/scripts/$script"
 done
 
 printf "\n%s\n" "${C_BOLD}${C_GREEN}All done!${C_RESET}"
