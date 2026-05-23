@@ -95,11 +95,11 @@
     /**
     * File Explorer
     **/
-    {
-        "key": "cmd+d",
-        "command": "duplicate.execute",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
-    },
+    // {
+    //     "key": "cmd+d",
+    //     "command": "duplicate.execute",
+    //     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    // },
     {
         "key": "cmd+n",
         "command": "explorer.newFile",
@@ -251,10 +251,10 @@
         "command": "editor.action.goToDeclaration",
         "when": "editorTextFocus"
     },
-    {
-        "key": "cmd+k cmd+i",
-        "command": "namespaceResolver.import"
-    },
+    // {
+    //     "key": "cmd+k cmd+i",
+    //     "command": "namespaceResolver.import"
+    // },
     /**
     * Project Switching
     **/
