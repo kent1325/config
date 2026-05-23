@@ -60,7 +60,7 @@ Creates these symlinks (existing files are backed up to `~/.dotfiles-backup/<tim
 | Repo file | Linked to |
 |---|---|
 | `zsh/.zshrc` | `~/.zshrc` |
-| `zsh/ZSHThemes.json` | `~/ZSHThemes.json` |
+| `zsh/.ZSHThemes.json` | `~/.ZSHThemes.json` |
 | `git/.gitconfig` | `~/.gitconfig` |
 | `ghostty/config` | `~/.config/ghostty/config` |
 
@@ -116,7 +116,7 @@ To re-capture other configs:
 
 ```bash
 cp ~/.zshrc                                                       zsh/.zshrc
-cp ~/ZSHThemes.json                                               zsh/ZSHThemes.json
+cp ~/.ZSHThemes.json                                              zsh/.ZSHThemes.json
 cp ~/.gitconfig                                                   git/.gitconfig
 cp ~/.config/ghostty/config                                       ghostty/config
 cp ~/.config/nvim/init.lua                                        neovim/init.lua

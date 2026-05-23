@@ -16,6 +16,8 @@
 	rebase = true # Keep your pulls clean (rebase, don't merge)
 [fetch]
 	prune = true # Auto-prune deleted remote branches on fetch
+[push]
+	autoSetupRemote = true
 [rerere]
 	enabled = true # Reuse conflict resolutions across rebases
 [credential]

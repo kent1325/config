@@ -10,7 +10,7 @@ step "Symlinking dotfiles"
 
 # zsh
 link_file "$REPO_ROOT/zsh/.zshrc"          "$HOME/.zshrc"
-link_file "$REPO_ROOT/zsh/ZSHThemes.json"  "$HOME/ZSHThemes.json"
+link_file "$REPO_ROOT/zsh/.ZSHThemes.json" "$HOME/.ZSHThemes.json"
 
 # git
 link_file "$REPO_ROOT/git/.gitconfig"      "$HOME/.gitconfig"

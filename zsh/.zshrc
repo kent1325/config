@@ -126,7 +126,7 @@ alias reload='source ~/.zshrc'
 
 # Theme settings
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config ~/ZSHThemes.json)"
+  eval "$(oh-my-posh init zsh --config ~/.ZSHThemes.json)"
 fi
 
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
